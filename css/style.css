@@ -25,3 +25,11 @@ img {
   border:1px solid #fff;
   color:#fff;
 }
+
+#input {
+  font-family:'Source Sans Pro';
+}
+
+#result {
+  margin-top:20px;
+}
