@@ -30,19 +30,21 @@ $(document).ready(function() {
     var computerChoice = "";
     var winner = "";
     var randomNumber = 0;
+    var winCount;
     
     $("#shoot").click(function() {
-        var userInput = $("#input").val();
+        var userInput = ($("#input").val()).toLowerCase();
+        if ((userInput !== "rock") && (userInput !== "paper") && (userInput !== "scissors")) {
+            $("#userChoice").text("");
+            $("#computerChoice").text("");
+            $("#result").text("Not valid input - please enter 'rock,' 'paper,' or 'scissors'");
+            return;
+        }
         randomNumber = Math.floor((Math.random() * 3) + 1); // range: btwn 1-3 inclusive
         if ((userInput === "rock") || (userInput === "paper") || (userInput === "scissors")) {
             userChoice === userInput;
             $("#userChoice").text(userInput);
             $("#result").text("");
-        }
-        else {
-            $("#userChoice").text("");
-            $("#computerChoice").text(" ");
-            $("#result").text("Please enter 'rock,' 'paper,' or 'scissors'");
         }
         if (randomNumber === 1) {
             computerChoice = "rock";
@@ -89,5 +91,6 @@ $(document).ready(function() {
                 $("#result").text("Computer wins");
             }
         }
+ 
     });
 });
